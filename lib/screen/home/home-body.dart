@@ -2,6 +2,7 @@
 import 'package:onlinecourse/screen/home/widget/appbar.dart';
 
 import 'widget/categories.dart';
+import 'widget/courses.dart';
 
 class HomeScreenBody extends StatelessWidget {
    const HomeScreenBody({ Key? key }) : super(key: key);
@@ -14,6 +15,7 @@ class HomeScreenBody extends StatelessWidget {
            children: const [
              HomeScreenAppBar(),
              Categories(),
+             Courses(),
            ],
          ),
        )

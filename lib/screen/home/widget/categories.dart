@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:onlinecourse/config/theme/theme.dart';
 import 'package:onlinecourse/model/model.dart';
 import 'package:onlinecourse/util/util.dart';
-
 import 'category-tile.dart';
 
 class Categories extends StatefulWidget {
@@ -20,7 +18,7 @@ class _CategoriesState extends State < Categories > {
 
   @override
   void didChangeDependencies() {
-    provideInfo();
+    provideCategories();
     super.didChangeDependencies();
   }
 
@@ -57,9 +55,11 @@ class _CategoriesState extends State < Categories > {
       ),
     );
   }
+
+
   // Provide options info
-  Future < void > provideInfo() async {
-    categories.add(Category(title: 'All course', isSelected: false));
+  Future < void > provideCategories() async {
+    categories.add(Category(title: 'All course', isSelected: true));
     categories.add(Category(title: 'Design', isSelected: false));
     categories.add(Category(title: 'Coding', isSelected: false));
     categories.add(Category(title: 'Business', isSelected: false));
