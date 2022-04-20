@@ -1,6 +1,8 @@
  import 'package:flutter/material.dart';
 import 'package:onlinecourse/screen/home/widget/appbar.dart';
 
+import 'widget/categories.dart';
+
 class HomeScreenBody extends StatelessWidget {
    const HomeScreenBody({ Key? key }) : super(key: key);
  
@@ -10,7 +12,8 @@ class HomeScreenBody extends StatelessWidget {
        body : SafeArea(
          child: Column(
            children: const [
-             HomeScreenAppBar()
+             HomeScreenAppBar(),
+             Categories(),
            ],
          ),
        )
