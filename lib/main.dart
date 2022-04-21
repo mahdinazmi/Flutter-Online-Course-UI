@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlinecourse/screen/screen.dart';
 import 'config/routes/routes.dart';
+import 'screen/home/nav/nav.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: Nav.routeName,
       routes: routes,
     );
   }
