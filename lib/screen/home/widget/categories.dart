@@ -57,7 +57,6 @@ class _CategoriesState extends State < Categories > {
   }
 
 
-  // Provide options info
   Future < void > provideCategories() async {
     categories.add(Category(title: 'All course', isSelected: true));
     categories.add(Category(title: 'Design', isSelected: false));

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:onlinecourse/config/theme/theme.dart';
 import 'package:onlinecourse/model/model.dart';
 import 'package:onlinecourse/screen/home/widget/course-tile.dart';
 import 'package:onlinecourse/util/util.dart';
@@ -49,7 +48,6 @@ class _CoursesState extends State < Courses > {
     );
   }
 
-  // Provide options info
   Future < void > provideCourses() async {
     courses.add(Course(title: 'UI/UX Design', coursePrice: '\$150', teacherName: 'Samanta Yasamin', courseDuration: '1h 15m', numberOfLessons: '12 lesson', courseImage: 'assets/images/ui-ux-design.jpg', teacherImage: 'assets/images/samanta-yasamin.jpg'));
     courses.add(Course(title: 'HTML & CSS', coursePrice: '\$250', teacherName: 'Alexander', courseDuration: '2h 10m', numberOfLessons: '20 lesson', courseImage: 'assets/images/coding.jpg', teacherImage: 'assets/images/alexander.jpg'));
