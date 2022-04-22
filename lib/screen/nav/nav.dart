@@ -48,7 +48,6 @@ class _NavState extends State < Nav > with SingleTickerProviderStateMixin {
           enableFeedback: false,
           indicatorSize: TabBarIndicatorSize.label,
           onTap: (index) {
-            print(index);
             setState(() {
               currentIndex = index;
             });

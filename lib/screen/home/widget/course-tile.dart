@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlinecourse/config/theme/theme.dart';
 import 'package:onlinecourse/model/model.dart';
+import 'package:onlinecourse/screen/course-detail/course-detail.dart';
 import 'package:onlinecourse/util/size/size-config.dart';
 
 class CourseTile extends StatelessWidget {
@@ -12,31 +13,36 @@ class CourseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: const [
-          BoxShadow(
-            color: AppColors.colorTint200,
-            blurRadius: 8,
-            offset: Offset(4, 8)
-          ),
-        ],
-      ),
-      width: getProportionateScreenWidth(220),
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            _courseImage(course!),
-            SizedBox(height: getProportionateScreenHeight(15)),
-            _courseTitleAndPrice(course!),
-            SizedBox(height: getProportionateScreenHeight(15)),
-            _courseTeacher(course!),
-            SizedBox(height: getProportionateScreenHeight(15)),
-            _courseDurationInfo(course!)
+    return InkWell(
+      onTap: (){
+        Navigator.pushNamed(context, CourseDetailScreen.routeName);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(
+              color: AppColors.colorTint200,
+              blurRadius: 8,
+              offset: Offset(4, 8)
+            ),
           ],
+        ),
+        width: getProportionateScreenWidth(220),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              _courseImage(course!),
+              SizedBox(height: getProportionateScreenHeight(15)),
+              _courseTitleAndPrice(course!),
+              SizedBox(height: getProportionateScreenHeight(15)),
+              _courseTeacher(course!),
+              SizedBox(height: getProportionateScreenHeight(15)),
+              _courseDurationInfo(course!)
+            ],
+          ),
         ),
       ),
     );
