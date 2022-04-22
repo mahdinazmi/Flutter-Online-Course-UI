@@ -46,8 +46,7 @@ class _PopularCoursesState extends State < PopularCourses > {
             );
           },
         ),
-          
-        ],
+       ],
       ),
     );
   }

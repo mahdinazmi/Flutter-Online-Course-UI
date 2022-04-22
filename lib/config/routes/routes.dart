@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:onlinecourse/screen/home/nav/nav.dart';
+import 'package:onlinecourse/screen/nav/nav.dart';
 import 'package:onlinecourse/screen/screen.dart';
 
 // We use name route
