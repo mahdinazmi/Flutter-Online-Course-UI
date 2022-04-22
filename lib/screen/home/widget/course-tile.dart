@@ -14,8 +14,12 @@ class CourseTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.pushNamed(context, CourseDetailScreen.routeName);
+      onTap: () {
+        Navigator.push(
+          context, MaterialPageRoute(
+            builder: (context) => CourseDetailScreen(course: course, )
+          )
+        );
       },
       child: Container(
         decoration: BoxDecoration(

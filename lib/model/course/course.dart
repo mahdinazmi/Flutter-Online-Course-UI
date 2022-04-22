@@ -6,5 +6,6 @@ class Course {
   final String ? coursePrice;
   final String ? numberOfLessons;
   final String ? courseDuration;
-  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage});
+  final List<String> ? sliderImages;
+  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage,this.sliderImages});
 }

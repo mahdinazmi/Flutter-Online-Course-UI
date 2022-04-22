@@ -1,11 +1,17 @@
  import 'package:flutter/material.dart';
  import 'package:flutter_svg/flutter_svg.dart';
  import 'package:onlinecourse/config/theme/theme.dart';
+ import 'package:onlinecourse/model/model.dart';
  import 'package:onlinecourse/util/util.dart';
-
+ import 'widget/image-slider.dart';
 
  class CourseDetailScreenBody extends StatelessWidget {
-   const CourseDetailScreenBody({ Key ? key }): super(key: key);
+   const CourseDetailScreenBody({
+     Key ? key,
+     this.course
+   }): super(key: key);
+
+   final Course ? course;
 
    @override
    Widget build(BuildContext context) {
@@ -28,7 +34,9 @@
        ),
        body: SafeArea(
          child: ListView(
-           children: const [],
+           children: [
+             ImagesSlider(course: course)
+           ],
          ),
        )
      );
