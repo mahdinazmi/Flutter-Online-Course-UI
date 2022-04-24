@@ -4,6 +4,8 @@ import 'package:onlinecourse/config/theme/theme.dart';
 import 'package:onlinecourse/model/model.dart';
 import 'package:onlinecourse/util/util.dart';
 
+import 'course-description.dart';
+
 class CourseInformation extends StatelessWidget {
   const CourseInformation({
     Key ? key,
@@ -18,6 +20,7 @@ class CourseInformation extends StatelessWidget {
       color: Colors.white,
       margin: EdgeInsets.only(top: getProportionateScreenHeight(20), right: getProportionateScreenWidth(20), left: getProportionateScreenHeight(20)),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,7 +56,9 @@ class CourseInformation extends StatelessWidget {
             ],
           ),
           SizedBox(height:getProportionateScreenHeight(18)),
-          _courseTeacher()
+          _courseTeacher(),
+          SizedBox(height:getProportionateScreenHeight(30)),
+          CourseDescription(course: course,)
         ],
       ),
     );
