@@ -1,3 +1,5 @@
+import 'package:onlinecourse/model/model.dart';
+
 class Course {
   final String ? title;
   final String ? teacherName;
@@ -8,5 +10,6 @@ class Course {
   final String ? courseDuration;
   final String ? courseDescription;
   final List<String> ? sliderImages;
-  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage,this.sliderImages,this.courseDescription});
+  final List<Lesson> ? lessons;
+  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage,this.sliderImages,this.courseDescription , this.lessons});
 }

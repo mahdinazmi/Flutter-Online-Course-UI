@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlinecourse/config/theme/theme.dart';
 import 'package:onlinecourse/model/model.dart';
+import 'package:onlinecourse/screen/screen.dart';
 import 'package:onlinecourse/util/size/size-config.dart';
 
 class PopularCourseTile extends StatelessWidget {
@@ -12,43 +13,51 @@ class PopularCourseTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.5,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: AppColors.colorTint400, width: 0.5),
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context, MaterialPageRoute(
+            builder: (context) => CourseDetailScreen(course: course, )
+          )
+        );
+      },
+      child: AspectRatio(
+        aspectRatio: 2.5,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: AppColors.colorTint400, width: 0.5),
 
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Row(
-
-            children: [
-              Flexible(
-                child: Row(
-                  children: [
-                    _courseImage(course!),
-                    SizedBox(width: getProportionateScreenWidth(10), ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        _courseTitle(course!),
-                        SizedBox(height: getProportionateScreenHeight(14), ),
-                        _courseTeacher(course!),
-                        SizedBox(height: getProportionateScreenHeight(14), ),
-                        _courseDurationInfo(course!)
-                      ],
-                    ),
-                  ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(15),
+            child: Row(
+              children: [
+                Flexible(
+                  child: Row(
+                    children: [
+                      _courseImage(course!),
+                      SizedBox(width: getProportionateScreenWidth(10), ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _courseTitle(course!),
+                          SizedBox(height: getProportionateScreenHeight(14), ),
+                          _courseTeacher(course!),
+                          SizedBox(height: getProportionateScreenHeight(14), ),
+                          _courseDurationInfo(course!)
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              _coursePrice(course!),
-              SizedBox(width: getProportionateScreenWidth(10), ),
-              Icon(Icons.arrow_forward_ios, size: 18)
-            ],
+                _coursePrice(course!),
+                SizedBox(width: getProportionateScreenWidth(10), ),
+                Icon(Icons.arrow_forward_ios, size: 18)
+              ],
+            ),
           ),
         ),
       ),

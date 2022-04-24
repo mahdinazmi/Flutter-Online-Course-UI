@@ -3,8 +3,10 @@
  import 'package:onlinecourse/config/theme/theme.dart';
  import 'package:onlinecourse/model/model.dart';
  import 'package:onlinecourse/util/util.dart';
+ import 'package:onlinecourse/widget/button/buttons.dart';
  import 'widget/course-information.dart';
-import 'widget/image-slider.dart';
+ import 'widget/course-lessons.dart';
+ import 'widget/image-slider.dart';
 
  class CourseDetailScreenBody extends StatelessWidget {
    const CourseDetailScreenBody({
@@ -34,10 +36,27 @@ import 'widget/image-slider.dart';
          ],
        ),
        body: SafeArea(
-         child: ListView(
+         child: Stack(
            children: [
-             ImagesSlider(course: course),
-             CourseInformation(course: course)
+             ListView(
+               physics: BouncingScrollPhysics(),
+               children: [
+                 ImagesSlider(course: course),
+                 CourseInformation(course: course),
+                 CourseLessons(course: course, )
+               ],
+             ),
+             Align(
+               alignment: Alignment.bottomCenter,
+               child: Container(
+                 margin: EdgeInsets.all(15),
+                 child: GeneralButton(
+                   text: 'Enroll Now',
+                   onPressed: (){},
+                   activeButton: true
+                 ),
+               ),
+             )
            ],
          ),
        )

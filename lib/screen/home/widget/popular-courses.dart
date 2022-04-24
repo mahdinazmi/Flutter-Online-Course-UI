@@ -17,6 +17,7 @@ class PopularCourses extends StatefulWidget {
 class _PopularCoursesState extends State < PopularCourses > {
 
   List < Course > courses = [];
+  List < Lesson > lessons = [];
 
   @override
   void didChangeDependencies() {
@@ -27,26 +28,26 @@ class _PopularCoursesState extends State < PopularCourses > {
   @override
   Widget build(BuildContext context) {
     return Container(
-       margin: EdgeInsets.only(top: getProportionateScreenHeight(15),left: getProportionateScreenWidth(15),right: getProportionateScreenWidth(15)),
+      margin: EdgeInsets.only(top: getProportionateScreenHeight(15), left: getProportionateScreenWidth(15), right: getProportionateScreenWidth(15)),
       child: Column(
         children: [
           _popularCoursesText(),
           ListView.separated(
-          itemCount: courses.length,
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.only(top:getProportionateScreenHeight(20),bottom:getProportionateScreenHeight(15)),
-          itemBuilder: (BuildContext context, int index) {
-            return PopularCourseTile(course: courses[index]);
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(
-              height: getProportionateScreenHeight(10)
-            );
-          },
-        ),
-       ],
+            itemCount: courses.length,
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
+            physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.only(top: getProportionateScreenHeight(20), bottom: getProportionateScreenHeight(15)),
+            itemBuilder: (BuildContext context, int index) {
+              return PopularCourseTile(course: courses[index]);
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(
+                height: getProportionateScreenHeight(10)
+              );
+            },
+          ),
+        ],
       ),
     );
   }
@@ -76,8 +77,65 @@ class _PopularCoursesState extends State < PopularCourses > {
   }
 
   Future < void > provideCourses() async {
-    courses.add(Course(title: 'HTML & CSS', coursePrice: '\$350', teacherName: 'Samanta Yasamin', courseDuration: '1h 35m', numberOfLessons: '17 lesson', courseImage: 'assets/images/coding.jpg', teacherImage: 'assets/images/samanta-yasamin.jpg'));
-    courses.add(Course(title: 'Intro to Design System', coursePrice: '\$175', teacherName: 'Joni Iskandar', courseDuration: '1h 23m', numberOfLessons: '11 lesson', courseImage: 'assets/images/design-system.png', teacherImage: 'assets/images/joni-iskandar.webp'));
-    courses.add(Course(title: 'Digital Marketing', coursePrice: '\$80', teacherName: 'Asep', courseDuration: '2h 15m', numberOfLessons: '15 lesson', courseImage: 'assets/images/marketing.jpg', teacherImage: 'assets/images/asep.jpg'));
+    lessons.add(
+      Lesson(
+        lessonName: 'UI/UX Design Introduction',
+        lessonDuration: '02:10'
+      )
+    );
+    lessons.add(
+      Lesson(
+        lessonName: 'UI Design Principle',
+        lessonDuration: '10:25'
+      )
+    );
+    lessons.add(
+      Lesson(
+        lessonName: 'Prototyping',
+        lessonDuration: '07:55'
+      )
+    );
+    courses.add(
+      Course(
+        title: 'UI/UX Design',
+        coursePrice: '\$150',
+        teacherName: 'Samanta Yasamin',
+        courseDuration: '1h 15m',
+        numberOfLessons: '12 lesson',
+        courseImage: 'assets/images/ui-ux-design.jpg',
+        teacherImage: 'assets/images/samanta-yasamin.jpg',
+        sliderImages: ['assets/images/ui-ux-design.jpg', 'assets/images/coding.jpg', 'assets/images/marketing.jpg'],
+        courseDescription: 'The UI/UX Design Specialization brings a design centric approach to user interface and user experience design, and offers practical, skill-based instruction centered around a visual communications perspective, rather than on one focused on marketing or programming alone.',
+        lessons: lessons
+      )
+    );
+    courses.add(
+      Course(
+        title: 'HTML & CSS',
+        coursePrice: '\$250',
+        teacherName: 'Alexander',
+        courseDuration: '2h 10m',
+        numberOfLessons: '20 lesson',
+        courseImage: 'assets/images/coding.jpg',
+        teacherImage: 'assets/images/alexander.jpg',
+        sliderImages: ['assets/images/ui-ux-design.jpg', 'assets/images/coding.jpg', 'assets/images/marketing.jpg'],
+        courseDescription: 'The UI/UX Design Specialization brings a design centric approach to user interface and user experience design, and offers practical, skill-based instruction centered around a visual communications perspective, rather than on one focused on marketing or programming alone.',
+        lessons: lessons
+      )
+    );
+    courses.add(
+      Course(
+        title: 'Digital Marketing',
+        coursePrice: '\$80',
+        teacherName: 'Asep',
+        courseDuration: '2h 15m',
+        numberOfLessons: '15 lesson',
+        courseImage: 'assets/images/marketing.jpg',
+        teacherImage: 'assets/images/alexander.jpg',
+        sliderImages: ['assets/images/ui-ux-design.jpg', 'assets/images/coding.jpg', 'assets/images/marketing.jpg'],
+        courseDescription: 'The UI/UX Design Specialization brings a design centric approach to user interface and user experience design, and offers practical, skill-based instruction centered around a visual communications perspective, rather than on one focused on marketing or programming alone.',
+        lessons: lessons
+      )
+    );
   }
 }
