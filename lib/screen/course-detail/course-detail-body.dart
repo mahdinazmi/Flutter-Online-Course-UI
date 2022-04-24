@@ -3,7 +3,8 @@
  import 'package:onlinecourse/config/theme/theme.dart';
  import 'package:onlinecourse/model/model.dart';
  import 'package:onlinecourse/util/util.dart';
- import 'widget/image-slider.dart';
+ import 'widget/course-information.dart';
+import 'widget/image-slider.dart';
 
  class CourseDetailScreenBody extends StatelessWidget {
    const CourseDetailScreenBody({
@@ -35,7 +36,8 @@
        body: SafeArea(
          child: ListView(
            children: [
-             ImagesSlider(course: course)
+             ImagesSlider(course: course),
+             CourseInformation(course: course)
            ],
          ),
        )
