@@ -45,7 +45,7 @@ class CourseTile extends StatelessWidget {
                     SizedBox(height: getProportionateScreenHeight(14), ),
                     _courseTeacher(course!),
                     SizedBox(height: getProportionateScreenHeight(20), ),
-                    _courseDurationInfo(course!)
+                    _courseProgress(course!)
                   ],
                 ),
               ],
@@ -111,18 +111,8 @@ class CourseTile extends StatelessWidget {
     );
   }
 
-  Widget _coursePrice(Course course) {
-    return Text(
-      course.coursePrice!,
-      style: TextStyle(
-        color: AppColors.colorPrimary,
-        fontWeight: FontWeight.bold,
-        fontSize: getProportionateScreenWidth(14)
-      )
-    );
-  }
 
-  Widget _courseDurationInfo(Course course) {
+  Widget _courseProgress(Course course) {
     return  LinearPercentIndicator(
       width: 195,
       animation: true,
