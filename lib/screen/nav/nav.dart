@@ -27,67 +27,82 @@ class _NavState extends State < Nav > with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Scaffold(
-      body: TabBarView(
-        controller: controller,
-        children: < Widget > [
-          HomeScreen(),
-          Container(),
-          Container(),
-          Container(),
-        ],
-      ),
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: TabBar(
+    return WillPopScope(
+      onWillPop: onWillPop,
+      child: Scaffold(
+        body: TabBarView(
           controller: controller,
-          unselectedLabelColor: Colors.grey,
-          labelColor: AppColors.colorPrimary,
-          indicatorColor: AppColors.colorPrimary,
-          labelPadding: EdgeInsets.only(bottom: 5),
-          enableFeedback: false,
-          indicatorSize: TabBarIndicatorSize.label,
-          onTap: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          tabs: [
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/icons/home.svg',
-                color: currentIndex == 0 ? AppColors.colorPrimary : AppColors.colorTint400,
-                width: getProportionateScreenWidth(19),
-                height: getProportionateScreenWidth(19),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/icons/document.svg',
-                color: currentIndex == 1 ? AppColors.colorPrimary : AppColors.colorTint400,
-                width: getProportionateScreenWidth(19),
-                height: getProportionateScreenWidth(19),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/icons/shopping-cart.svg',
-                color: currentIndex == 2 ? AppColors.colorPrimary : AppColors.colorTint400,
-                width: getProportionateScreenWidth(19),
-                height: getProportionateScreenWidth(19),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/icons/user.svg',
-                color: currentIndex == 3 ? AppColors.colorPrimary : AppColors.colorTint400,
-                width: getProportionateScreenWidth(19),
-                height: getProportionateScreenWidth(19),
-              ),
-            ),
+          children: < Widget > [
+            HomeScreen(),
+            MyCoursesScreen(),
+            Container(),
+            Container(),
           ],
+        ),
+        bottomNavigationBar: Container(
+          color: Colors.white,
+          child: TabBar(
+            controller: controller,
+            unselectedLabelColor: Colors.grey,
+            labelColor: AppColors.colorPrimary,
+            indicatorColor: AppColors.colorPrimary,
+            labelPadding: EdgeInsets.only(bottom: 5),
+            enableFeedback: false,
+            indicatorSize: TabBarIndicatorSize.label,
+            onTap: (index) {
+              setState(() {
+                currentIndex = index;
+              });
+            },
+            tabs: [
+              Tab(
+                icon: SvgPicture.asset(
+                  'assets/icons/home.svg',
+                  color: currentIndex == 0 ? AppColors.colorPrimary : AppColors.colorTint400,
+                  width: getProportionateScreenWidth(19),
+                  height: getProportionateScreenWidth(19),
+                ),
+              ),
+              Tab(
+                icon: SvgPicture.asset(
+                  'assets/icons/document.svg',
+                  color: currentIndex == 1 ? AppColors.colorPrimary : AppColors.colorTint400,
+                  width: getProportionateScreenWidth(19),
+                  height: getProportionateScreenWidth(19),
+                ),
+              ),
+              Tab(
+                icon: SvgPicture.asset(
+                  'assets/icons/shopping-cart.svg',
+                  color: currentIndex == 2 ? AppColors.colorPrimary : AppColors.colorTint400,
+                  width: getProportionateScreenWidth(19),
+                  height: getProportionateScreenWidth(19),
+                ),
+              ),
+              Tab(
+                icon: SvgPicture.asset(
+                  'assets/icons/user.svg',
+                  color: currentIndex == 3 ? AppColors.colorPrimary : AppColors.colorTint400,
+                  width: getProportionateScreenWidth(19),
+                  height: getProportionateScreenWidth(19),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+    Future < bool > onWillPop() {
+    if ( controller.index == 0) {
+      return Future.value(true);
+    } else {
+      setState(() {
+        controller.index  = 0;
+        currentIndex = 0;
+      });
+      return Future.value(false);
+    }
   }
 }

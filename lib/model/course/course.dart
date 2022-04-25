@@ -9,7 +9,8 @@ class Course {
   final String ? numberOfLessons;
   final String ? courseDuration;
   final String ? courseDescription;
+  final String ? courseProgressValue;
   final List<String> ? sliderImages;
   final List<Lesson> ? lessons;
-  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage,this.sliderImages,this.courseDescription , this.lessons});
+  Course({this.title,this.teacherName,this.teacherImage,this.coursePrice,this.numberOfLessons,this.courseDuration,this.courseImage,this.sliderImages,this.courseDescription , this.lessons, this.courseProgressValue});
 }

@@ -6,5 +6,6 @@ import 'package:onlinecourse/screen/screen.dart';
 final Map<String, WidgetBuilder> routes = {
   HomeScreen.routeName: (context) => HomeScreen(),
   Nav.routeName: (context) => Nav(),
-  CourseDetailScreen.routeName : (context) => CourseDetailScreen()
+  CourseDetailScreen.routeName : (context) => CourseDetailScreen(),
+  MyCoursesScreen.routeName : (context) => MyCoursesScreen()
 };

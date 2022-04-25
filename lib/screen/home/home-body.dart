@@ -13,6 +13,7 @@ class HomeScreenBody extends StatelessWidget {
      return Scaffold (
        body : SafeArea(
          child: ListView(
+           physics: BouncingScrollPhysics(),
            children: const [
              HomeScreenAppBar(),
              Categories(),

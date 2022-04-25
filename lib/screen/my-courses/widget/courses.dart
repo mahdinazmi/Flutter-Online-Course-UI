@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlinecourse/model/model.dart';
-import 'package:onlinecourse/screen/home/widget/course-tile.dart';
 import 'package:onlinecourse/util/util.dart';
+import 'courses-tile.dart';
 
 class Courses extends StatefulWidget {
   const Courses({
@@ -22,30 +22,22 @@ class _CoursesState extends State < Courses > {
     provideCourses();
     super.didChangeDependencies();
   }
-
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.25,
-      child: Container(
-        margin: EdgeInsets.only(top: getProportionateScreenHeight(10)),
-        color: Colors.transparent,
-        child: ListView.separated(
-          itemCount: courses.length,
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
-          padding: EdgeInsets.all(15),
-          itemBuilder: (BuildContext context, int index) {
-            return CourseTile(course: courses[index]);
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(
-              width: getProportionateScreenWidth(10)
-            );
-          },
-        ),
-      ),
+    return ListView.separated(
+      itemCount: courses.length,
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      physics: BouncingScrollPhysics(),
+      padding: EdgeInsets.only(top: getProportionateScreenHeight(25), bottom: getProportionateScreenHeight(15) , left: getProportionateScreenWidth(20) , right: getProportionateScreenWidth(20)  ),
+      itemBuilder: (BuildContext context, int index) {
+        return CourseTile(course: courses[index]);
+      },
+      separatorBuilder: (context, index) {
+        return SizedBox(
+          height: getProportionateScreenHeight(15)
+        );
+      },
     );
   }
 
@@ -106,7 +98,7 @@ class _CoursesState extends State < Courses > {
         courseDuration: '2h 15m',
         numberOfLessons: '15 lesson',
         courseImage: 'assets/images/marketing.jpg',
-        teacherImage: 'assets/images/alexander.jpg',
+        teacherImage: 'assets/images/asep.jpg',
         sliderImages: ['assets/images/ui-ux-design.jpg', 'assets/images/coding.jpg', 'assets/images/marketing.jpg'],
         courseDescription: 'The UI/UX Design Specialization brings a design centric approach to user interface and user experience design, and offers practical, skill-based instruction centered around a visual communications perspective, rather than on one focused on marketing or programming alone.',
         lessons: lessons,
@@ -118,7 +110,7 @@ class _CoursesState extends State < Courses > {
       Course(
         title: 'Design Systemm',
         coursePrice: '\$90',
-        teacherName: 'Asep',
+        teacherName: 'Alexander',
         courseDuration: '2h 15m',
         numberOfLessons: '15 lesson',
         courseImage: 'assets/images/design-system.png',
